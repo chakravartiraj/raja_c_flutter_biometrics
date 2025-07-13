@@ -127,19 +127,3 @@ fastlane ci
 
 fastlane cd
 
-REMEMBER to:
-● Use BLoC pattern with separation of concerns
-● Use animations for button taps and transitions
-● Reusability of components
-● Make design be Responsive and supported for both mobile and tablets
-● Support for Face ID - Android(Compulsory) and
-(iOS)(Optional)
-● Support for Fingerprint - both Android and iOS
-● Uses platform's default (SF Pro on iOS, Inter on Android)
-
-FOCUS on:
-● Code structure
-● Architecture decisions
-● Error handling
-● Best practices - SOLID Principles & Clean Code Principles
-● Implementation of everything based on the current directory tree structure of the lib folder
