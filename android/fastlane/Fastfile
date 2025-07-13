@@ -1,0 +1,68 @@
+default_platform(:android)
+
+platform :android do
+  # project_root = "/home/io/StudioProjects/raja-c-flutter-biometrics"
+  project_root = File.expand_path('../..', __dir__)
+  # This sets project_root to two levels up from the Fastfile (i.e., your Flutter project root).
+
+  lane :code_review do
+    sh "flutter pub get"
+    sh "dart format ."
+    sh "dart fix --apply"
+    sh "flutter analyze"
+    sh "cd #{project_root} && flutter test"
+    sh "cd #{project_root} && flutter test --coverage"
+    sh "cd #{project_root} && lcov --summary coverage/lcov.info"
+    sh "cd #{project_root} && genhtml coverage/lcov.info -o coverage/html"
+    # Add any additional static analysis or linting tools here if needed
+  end
+  
+  lane :build_apk do
+    sh "flutter pub get"
+    sh "dart format ."
+    sh "dart fix --apply"
+    sh "flutter analyze"
+    sh "flutter build apk --release"
+  end
+  
+  lane :build_aab do
+    sh "flutter pub get"
+    sh "dart format ."
+    sh "dart fix --apply"
+    sh "flutter analyze"
+    sh "flutter build aab --release"
+  end
+
+  lane :ci do
+    sh "flutter pub get"
+    sh "dart format ."
+    sh "dart fix --apply"
+    sh "flutter analyze"
+    sh "cd #{project_root} && flutter test"
+    sh "cd #{project_root} && flutter test --coverage"
+    sh "cd #{project_root} && lcov --summary coverage/lcov.info"
+    sh "cd #{project_root} && genhtml coverage/lcov.info -o coverage/html"
+    sh "flutter build apk --release"
+  end
+
+  lane :cd do
+    sh "flutter clean"
+    sh "flutter pub get"
+    sh "dart format ."
+    sh "dart fix --apply"
+    sh "flutter analyze"
+    sh "cd #{project_root} && flutter test --tags=unit"
+    sh "cd #{project_root} && flutter test --tags=widget"
+    sh "cd #{project_root} && flutter test integration_test"
+    sh "cd #{project_root} && flutter test --coverage"
+    sh "cd #{project_root} && lcov --summary coverage/lcov.info"
+    sh "cd #{project_root} && genhtml coverage/lcov.info -o coverage/html"
+    sh "flutter build aab --release"
+    # Example: upload to Firebase App Distribution
+    # firebase_app_distribution(
+    #   app: "<your-app-id>",
+    #   testers: "email1@example.com,email2@example.clearcom",
+    #   release_notes: "Automated build from Fastlane CD lane"
+    # )
+  end
+end

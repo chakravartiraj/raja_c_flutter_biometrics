@@ -1,0 +1,70 @@
+name: raja_c_flutter_biometrics
+description: "A Flutter project for biometric authentication - Take Home Assignment"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 🎨 UI & Theming
+  google_fonts: ^6.1.0
+
+  # Animations (as per your requirements)
+  animations: ^2.0.8
+
+  # Biometric Authentication
+  local_auth: ^2.3.0
+
+  # 🏗State Management (BLoC)
+  flutter_bloc: ^9.1.1
+  bloc: ^9.0.0
+
+  # Dependency Injection
+  get_it: ^8.0.3
+  injectable: ^2.3.2
+  
+  # Functional Programming & Error Handling
+  dartz: ^0.10.1
+  equatable: ^2.0.5
+  
+  # Local Storage (for biometric preferences)
+  shared_preferences: ^2.2.2
+  
+
+dev_dependencies:
+  golden_toolkit: ^0.15.0
+  flutter_test:
+    sdk: flutter
+
+  # Code Generation
+  injectable_generator: ^2.4.1
+  build_runner: ^2.4.7
+  
+  # Testing
+  bloc_test: ^10.0.0
+  mocktail: ^1.0.1
+
+  # Linting
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Assets
+  # assets:
+  #   - assets/images/
+  #   - assets/icons/
+
+  # Custom Fonts
+  # fonts:
+  #   - family: SF Pro Display
+  #     fonts:
+  #       - asset: assets/fonts/SFProDisplay-Regular.ttf
+  #       - asset: assets/fonts/SFProDisplay-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/SFProDisplay-Bold.ttf
+  #         weight: 700

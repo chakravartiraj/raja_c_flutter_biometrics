@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.001955611">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: flutter pub get" time="55.0249811">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: dart format ." time="4.500342913">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: dart fix --apply" time="8.448217135">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: flutter analyze" time="18.035789236">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: cd /home/io/StudioProjects/raja-c-flutter-biometrics &amp;&amp; flutter test" time="267.176639533">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: cd /home/io/StudioProjects/raja-c-flutter-biometrics &amp;&amp; flutter test --coverage" time="394.687452538">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: cd /home/io/StudioProjects/raja-c-flutter-biometrics &amp;&amp; lcov --summary coverage/lcov.info" time="2.863450148">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="8: cd /home/io/StudioProjects/raja-c-flutter-biometrics &amp;&amp; genhtml coverage/lcov.info -o coverage/html" time="4.05325406">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>

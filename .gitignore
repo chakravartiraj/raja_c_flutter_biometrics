@@ -1,0 +1,79 @@
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+.pub/
+build/
+flutter_*.png
+
+# IDEs and editors
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Android
+android/.gradle/
+android/app/build/
+android/local.properties
+android/gradlew
+android/gradlew.bat
+android/gradle/
+android/app/generated/
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/Runner.xcworkspace/
+ios/Runner.xcodeproj/
+ios/RunnerTests/
+
+# Web
+web/.dart_tool/
+web/build/
+
+# Coverage
+coverage/
+
+# Misc
+*.log
+*.tmp
+*.swp
+*.lock
+*.DS_Store
+*.class
+*.jar
+*.war
+*.ear
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite
+*.bak
+*.backup
+*.orig
+*.rej
+
+# Fastlane
+fastlane/report.xml
+fastlane/screenshots/
+fastlane/test_output/
+
+# Generated files
+lib/generated_plugin_registrant.dart
+
+# Other
+.env
+
+# Exclude test cache
+test_cache/
+
+# Exclude docs
+/docs/
+

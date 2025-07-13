@@ -1,0 +1,69 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+include: package:flutter_lints/flutter.yaml
+
+# Analyzer configuration
+analyzer:
+  # Exclude generated files and build directories for better performance
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/generated_plugin_registrant.dart"
+    - "build/**"
+    - ".dart_tool/**"
+    - "ios/**"
+    - "android/**"
+    - "web/**"
+    - "windows/**"
+    - "linux/**"
+    - "macos/**"
+    - "test/**"
+    - "**/node_modules/**"
+  
+  # Disable expensive analysis features for better performance
+  language:
+    strict-casts: false
+    strict-inference: false
+    strict-raw-types: false
+  
+  # Reduce analysis scope
+  plugins:
+    # Disable heavy plugins if not needed
+  
+  # Treat certain warnings as errors (minimal set for performance)
+  errors:
+    # Only critical errors
+    invalid_annotation_target: error
+    unused_import: warning  # Changed from error to warning
+    unused_local_variable: warning  # Changed from error to warning
+    dead_code: warning  # Changed from error to warning
+
+linter:
+  # Reduced lint rules for better performance
+  rules:
+    # Essential style rules only
+    prefer_single_quotes: true
+    prefer_const_constructors: true
+    
+    # Critical error prevention only
+    always_declare_return_types: true
+    avoid_catching_errors: true
+    
+    # Disable expensive rules for performance
+    # prefer_const_literals_to_create_immutables: false
+    # prefer_final_locals: false
+    # avoid_function_literals_in_foreach_calls: false
+    # directives_ordering: false
+    
+    # Essential null safety
+    avoid_null_checks_in_equality_operators: true
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
