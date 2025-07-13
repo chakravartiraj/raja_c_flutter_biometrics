@@ -76,4 +76,7 @@ test_cache/
 
 # Exclude docs
 /docs/
+ 
+# Exclude all test files
+test/
 
