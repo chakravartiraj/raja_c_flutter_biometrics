@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:raja_c_flutter_biometrics/presentation/blocs/auth/auth_state.dart';
 import 'package:raja_c_flutter_biometrics/presentation/routes/navigation_service.dart';
 import 'package:raja_c_flutter_biometrics/presentation/widgets/animated_biometric_button.dart';
 import 'package:raja_c_flutter_biometrics/presentation/widgets/responsive_layout.dart';
 import 'package:raja_c_flutter_biometrics/services/biometric_service.dart';
 
 import '../../core/themes/app_theme.dart';
+import '../blocs/auth/auth_bloc.dart';
 import '../routes/app_route_enum.dart';
 import '../widgets/common/liquid_glass_card.dart';
 
@@ -44,42 +47,57 @@ class _AuthScreenState extends State<AuthScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.backgroundColor,
-      body: Stack(
-        children: [
-          // Visually appealing multi-stop gradient background with radial overlay
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  AppTheme.primaryColor,
-                  AppTheme.primaryColor.withValues(alpha: 0.85),
-                  AppTheme.primaryColor.withValues(alpha: 0.7),
-                  AppTheme.backgroundColor,
-                ],
-                stops: const [0.0, 0.4, 0.7, 1.0],
-                begin: Alignment.bottomRight,
-                end: Alignment.topLeft,
+      body: BlocConsumer<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is AuthErrorState) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.errorMessage),
+                backgroundColor: AppTheme.errorColor,
+                behavior: SnackBarBehavior.floating,
               ),
-            ),
-            child: CustomPaint(
-              painter: _RadialBackgroundPainter(),
-              child: Container(),
-            ),
-          ),
-          Center(
-            child: SafeArea(
-              child: ResponsiveLayout(
-                mobile: _buildContent(context, false),
-                tablet: Center(
-                  child: Container(
-                    constraints: const BoxConstraints(maxWidth: 500),
-                    child: _buildContent(context, true),
+            );
+          }
+        },
+        builder: (context, state) {
+          return Stack(
+            children: [
+              // Visually appealing multi-stop gradient background with radial overlay
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      AppTheme.primaryColor,
+                      AppTheme.primaryColor.withValues(alpha: 0.85),
+                      AppTheme.primaryColor.withValues(alpha: 0.7),
+                      AppTheme.backgroundColor,
+                    ],
+                    stops: const [0.0, 0.4, 0.7, 1.0],
+                    begin: Alignment.bottomRight,
+                    end: Alignment.topLeft,
+                  ),
+                ),
+                child: CustomPaint(
+                  painter: _RadialBackgroundPainter(),
+                  child: Container(),
+                ),
+              ),
+              Center(
+                child: SafeArea(
+                  child: ResponsiveLayout(
+                    mobile: _buildContent(context, false),
+                    tablet: Center(
+                      child: Container(
+                        constraints: const BoxConstraints(maxWidth: 500),
+                        child: _buildContent(context, true),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }
