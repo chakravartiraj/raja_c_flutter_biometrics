@@ -131,7 +131,7 @@ class _AnimatedBiometricButtonState extends State<AnimatedBiometricButton>
                             child: SizedBox(
                               height: isTablet ? 28 : 24,
                               width: isTablet ? 28 : 24,
-                              child: CircularProgressIndicator(),
+                              child: const CircularProgressIndicator(),
                             ),
                           )
                         : Icon(
